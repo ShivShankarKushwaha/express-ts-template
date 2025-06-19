@@ -1,1 +1,52 @@
-bunx --no-install lint-staged
+#!/bin/sh
+
+# Determine package manager based on lock files
+if [ -f bun.lockb ]; then
+    PM="bun"
+elif [ -f pnpm-lock.yaml ]; then
+    PM="pnpm"
+elif [ -f yarn.lock ]; then
+    PM="yarn"
+elif [ -f package-lock.json ]; then
+    PM="npm"
+else
+    echo "No known lock file found (bun.lockb, pnpm-lock.yaml, yarn.lock, package-lock.json)."
+    echo "Unable to determine package manager."
+    exit 1
+fi
+
+# Run lint-staged using the appropriate package manager
+case "$PM" in
+  bun)
+    if command -v bunx >/dev/null 2>&1; then
+        bunx --no-install lint-staged
+    else
+        echo "Bun detected, but 'bunx' is not installed."
+        exit 1
+    fi
+    ;;
+  pnpm)
+    if command -v pnpm >/dev/null 2>&1; then
+        pnpm exec lint-staged
+    else
+        echo "pnpm detected, but not installed."
+        exit 1
+    fi
+    ;;
+  yarn)
+    if command -v yarn >/dev/null 2>&1; then
+        yarn lint-staged
+    else
+        echo "Yarn detected, but not installed."
+        exit 1
+    fi
+    ;;
+  npm)
+    if command -v npx >/dev/null 2>&1; then
+        npx --no-install lint-staged
+    else
+        echo "npm detected, but 'npx' is not installed."
+        exit 1
+    fi
+    ;;
+esac
