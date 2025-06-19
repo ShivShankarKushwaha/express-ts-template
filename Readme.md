@@ -1,135 +1,151 @@
-# Node.js Express Backend Starter Template
+# 🚀 Node.js Express Backend Starter Template
 
-This is a Node.js backend template using Express.js, TypeScript, and several other essential libraries and tools. It is designed to provide a strong foundation for building robust and scalable server-side applications.
+A modern, production-ready backend boilerplate built with **Express.js**, **TypeScript**, **MongoDB**, and more. Designed for scalable, secure, and maintainable server-side applications.
 
-## Features
+---
 
-- Express.js for building RESTful APIs
-- TypeScript for static typing
-- Redis for caching
-- MongoDB for data persistence
-- Winston for logging
-- Docker support for containerization
-- Environment variable management with dotenv
-- Rate limiting for security
-- Password hashing with bcrypt
-- JWT for authentication
-- vercel for deployment
+## 🌟 Features
 
-## Prerequisites
+- **⚡ Express.js** – Fast, minimalist framework for RESTful APIs.
+- **🟦 TypeScript** – Static typing for safer, scalable code.
+- **🍃 MongoDB + Mongoose** – Schema-based data modeling and management.
+- **📕 Redis** – In-memory store for caching, sessions, and more.
+- **📝 Winston** – Advanced logging system with structured logs.
+- **🐳 Docker & Docker Compose** – Containerize your app with ease.
+- **🔐 dotenv** – Securely manage configuration and secrets.
+- **🚫 Rate Limiting** – Defend against abuse and brute-force attacks.
+- **🔒 bcrypt** – Secure password hashing.
+- **🪪 JWT Auth** – Stateless, scalable token-based authentication.
+- **☁️ Vercel Deployment** – Out-of-the-box serverless deployment.
+- **🧹 ESLint + Prettier** – Clean, consistent codebase.
+- **🐶 Husky + Lint-Staged** – Automated pre-commit quality checks.
+- **🧪 Vitest** – Unit & E2E tests with modern test tooling.
 
-Ensure you have the following installed:
+---
 
-- Node.js (version 18.x)
-- Docker (optional, for containerization)
-- bun `npm i -g bun`
+## 🔧 Prerequisites
 
-## Getting Started
+- **Node.js** v18+
+- **Docker** (optional but recommended)
+- **Bun** *(optional package manager)*
 
-### Clone the repository
+```bash
+# Install Bun (optional)
+npm i -g bun
+```
+
+---
+
+## 🚀 Getting Started
 
 ```bash
 git clone https://github.com/ShivShankarKushwaha/express-ts-template
 cd express-ts-template
+bun install # or npm install
 ```
 
-### Install dependencies
+> 💡 Create a `.env` file from `.env.example`. Never commit secrets to git.
+
+```env
+MONGO_URI=mongodb://localhost:27017/devdb
+APP_SECRET=strong_jwt_secret
+REDIS_URL=redis://localhost:6379
+PORT=5500
+```
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── .husky/              # Git hooks
+├── src/
+│   ├── config/          # DB, Redis, Logger, Env configs
+│   ├── controllers/     # Route logic
+│   ├── middlewares/     # Express middlewares
+│   ├── models/          # Mongoose models
+│   ├── routes/          # API route declarations
+│   ├── services/        # Business logic
+│   ├── utils/           # Helpers (JWT, bcrypt, etc.)
+│   └── server.ts        # App entry point
+├── tests/               # Unit & E2E tests
+├── Dockerfile
+├── docker-compose.yml
+└── ...
+```
+
+---
+
+## 🛠 Development
 
 ```bash
-# Using bun
-bun install
-
+bun run dev # or npm run dev
 ```
 
-### Environment Variables
+---
 
-Create a `.env` file in the root of the project and configure the following environment variables:
-**Do not use quotes to keep value in .env**
-❌ APP_SECRET="asda34rwer" or APP_SECRET='asda34rwer'
-✅ APP_SECRET=asda34rwer
-```
-MONGO_URI=your-mongodb-uri
-APP_SECRET=your-app-secret
-REDIS_URL=your-redis-url
-REDIS_PASSWORD=your-redis-password
-```
-
-### Running the Development Server
+## 📦 Production
 
 ```bash
-# Using bun
-bun run dev
-
+bun run build     # or npm run build
+bun run start     # or npm run start
 ```
 
-The server will start on the port defined in the `.env` file or default to 5500.
+---
 
-### Building for Production
-
-```bash
-# Using bun
-bun run build
-
-```
-
-### Running the Production Server
+## 🐳 Docker
 
 ```bash
-# Using bun
-bun start
-
-```
-
-### Running with Docker
-
-Build and start the Docker container:
-
-```bash
-# Suggestion: change the docker image name as you want from ("build:docker":"docker build -t advanced .") from package.json and from docker/index.sh (Image_Name=advanced)
 bun run build:docker
 bun run start:docker
 ```
 
-## Testing
+Ensure `.env` uses Docker hostnames (e.g., `mongodb://mongodb:27017/db`).
 
-Run unit and end-to-end tests using Vitest:
+---
 
-```bash
-# Unit tests
-bun run test:unit
-
-# E2E tests
-bun run test:e2e
-
-# Coverage report
-bun run coverage
-```
-
-## Linting and Formatting
-
-Ensure your code adheres to the project's code style:
+## ✅ Testing
 
 ```bash
-# Check for linting errors
-bun run lint
-
-# Automatically fix linting errors
-bun run format
+bun run test        # All tests
+bun run test:unit   # Unit tests only
+bun run test:e2e    # E2E tests only
+bun run coverage    # Coverage report
 ```
 
-## Deploying on Vercel
-Ensure you have an account on vercel.com
+---
+
+## 🧼 Code Quality
+
 ```bash
-# install vercel globally
-bun add -g vercel
-
-# deploy on vercel
-vercel
-
-# if updating deploy on vercel
-vercel;vercel --prod
+bun run lint        # Check lint errors
+bun run format      # Auto-fix code
 ```
 
-## Contributing
+> ✅ Enforced via Git hooks using Husky + Lint-Staged.
 
-Contributions are welcome! Please follow the established code style and ensure all tests pass before submitting a pull request.
+---
+
+## ☁️ Vercel Deployment
+
+```bash
+vercel        # First-time setup
+vercel --prod # Push to production
+```
+
+---
+
+## 🤝 Contributing
+
+1. Fork and create your branch.
+2. Follow code style (`bun run format`).
+3. Add/Update tests.
+4. Make a PR!
+
+---
+
+## 🧠 Author
+
+**Shiv Shankar Kushwaha**
+🌐 [shivshankar.vercel.app](https://shivshankar.vercel.app)
