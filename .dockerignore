@@ -1,0 +1,23 @@
+Dockerfile
+.dockerignore
+.gitattributes
+README.md
+.npmrc
+.prettierrc
+.eslintrc.cjs
+.graphqlrc
+.editorconfig
+.vscode
+node_modules
+build
+package
+**/.env
+
+# Exclude test results
+coverage
+test-results
+
+# Exclude version control and local config files
+.git
+.gitignore
+.husky

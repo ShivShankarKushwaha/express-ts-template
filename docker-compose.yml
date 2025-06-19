@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5500:5500'
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
