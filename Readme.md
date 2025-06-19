@@ -29,8 +29,8 @@ Ensure you have the following installed:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/ShivShankarKushwaha/templates
-cd templates/Ts-Server
+git clone https://github.com/ShivShankarKushwaha/express-ts-template
+cd express-ts-template
 ```
 
 ### Install dependencies
