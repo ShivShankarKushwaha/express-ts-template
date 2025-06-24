@@ -41,10 +41,7 @@ npm i -g bun
 ```bash
 
     # Automatic Installation
-    # skip every installation step using npm package
-    npm i -g @xcript/express
-    # then run the script for this template
-    @xcript/express
+    npx @xcript/express
 
 ```
 
