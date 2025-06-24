@@ -39,6 +39,18 @@ npm i -g bun
 ## 🚀 Getting Started
 
 ```bash
+
+    # Automatic Installation
+    # skip every installation step using npm package
+    npm i -g @xcript/express
+    # then run the script for this template
+    @xcript/express
+
+```
+
+
+```bash
+# manual installation
 git clone https://github.com/ShivShankarKushwaha/express-ts-template
 cd express-ts-template
 bun install # or npm install

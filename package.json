@@ -13,8 +13,8 @@
 		"prepare": "husky",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"build:docker": "docker build -t advanced .",
-		"start:docker": "./src/scripts/docker/index.sh --remove"
+		"build:docker": "./src/scripts/docker/index.sh --build",
+		"start:docker": "./src/scripts/docker/index.sh --start"
 	},
 	"author": "Shiv Shankar Kushwaha",
 	"license": "ISC",
